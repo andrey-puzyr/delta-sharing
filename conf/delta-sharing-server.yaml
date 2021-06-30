@@ -1,0 +1,25 @@
+# The format version of this config file
+version: 1
+# Config shares/schemas/tables to share
+shares:
+- name: "_Delta"
+  schemas:
+  - name: "Imedia"
+    tables:
+    - name: "Vistis"
+      location: "s3a://datamesh-s3-production/_Delta/Imedia/Visits"
+# Set the host name that the server will use
+host: "localhost"
+# Set the port that the server will listen on
+port: 8081
+# Set the url prefix for the REST APIs
+endpoint: "/delta-sharing"
+# Set the timeout of S3 presigned url in seconds
+preSignedUrlTimeoutSeconds: 900
+# How many tables to cache in the server
+deltaTableCacheSize: 10
+# Whether we can accept working with a stale version of the table. This is useful when sharing
+# static tables that will never be changed.
+stalenessAcceptable: false
+# Whether to evaluate user provided `predicateHints`
+evaluatePredicateHints: false
