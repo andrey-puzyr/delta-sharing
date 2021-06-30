@@ -68,7 +68,9 @@ class DeltaSharedTable(
     evaluatePredicateHints: Boolean) {
 
   private val conf = withClassLoader {
-    new Configuration()
+    val conf = new Configuration()
+    conf.set("fs.s3a.endpoint", "https://s3.yandexcloud.net")
+    conf
   }
 
   private val deltaLog = withClassLoader {
